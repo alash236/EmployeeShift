@@ -1,0 +1,30 @@
+@for(item of clockList;track $index){
+  <div>
+    @if(!isEdit){
+      <h2>{{item.date}}</h2>
+      <button (click)="changeType()">編輯</button><br/>
+      <label>{{item.clockOn}}</label>
+      <label>{{item.clockOff}}</label>
+      @if(item.hasDouble){
+        <p>今日是否加倍:有<p>
+      }@else{
+        <p>今日是否加倍:否</p>
+      }
+      <p>今日心情分數:{{item.score}}<p>
+      <p>今日總工時:{{item.totalHour}}</p>
+    }@else{
+      <h2>{{item.date}}</h2>
+      <button (click)="changeType()">取消</button><br/>
+      <button (click)="updateClock(item.clockOn,item.clockOff)">更新</button>
+      <input type="time" [(ngModel)]="item.clockOn">
+      <input type="time" [(ngModel)]="item.clockOff">
+      @if(item.hasDouble){
+        <p>今日是否加倍:有</p>
+      }@else{
+        <p>今日是否加倍:否</p>
+      }
+      <p>今日心情分數:{{item.score}}</p>
+      <p>今日總工時:{{item.totalHour}}</p>
+    }
+  </div>
+}

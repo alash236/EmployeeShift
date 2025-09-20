@@ -1,0 +1,27 @@
+<h2 class="dialog-title">更新通知</h2>
+
+<form class="notification-form">
+  <!-- 通知內容輸入框 -->
+  <div class="form-group">
+    <label for="content">通知內容</label>
+    <textarea id="content" name="notifyText"  rows="4" class="form-control" placeholder="請輸入通知內容" [(ngModel)]="notifyText"></textarea>
+  </div>
+
+  <!-- 開始日期 -->
+  <div class="form-group">
+    <label for="startDate">開始日期</label>
+    <input type="date" name="notifyStartTime" id="startDate" class="form-control" [(ngModel)]="notifyStartTime"  [min]="today" />
+  </div>
+
+  <!-- 結束日期 -->
+  <div class="form-group">
+    <label for="endDate">結束日期</label>
+    <input type="date" name="notifyEndTime" id="endDate" class="form-control" [(ngModel)]="notifyEndTime" [min]="after" />
+  </div>
+
+  <!-- 按鈕 -->
+  <div class="button-group">
+    <button type="button" class="btn cancel" (click)="deleteNotify()">刪除</button>
+    <button type="submit" class="btn submit" (click)="updateNotify()">儲存</button>
+  </div>
+</form>

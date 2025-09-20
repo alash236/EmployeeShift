@@ -1,0 +1,31 @@
+<h2>新增排班</h2>
+
+<div class="form-group">
+  <label>員工</label>
+  <select [(ngModel)]="selectedEmployee" name="employee" required>
+    @for(item of employeeList; track $index){
+      <option [value]="item.branch_employee_id">{{ item.branch_employee_name}}</option>
+    }
+  </select>
+</div>
+
+<div class="form-group">
+  <label>日期</label>
+  <input type="date" [(ngModel)]="selectedDate" name="date" [min]="tomorrow" [max]="limit">
+</div>
+
+<div class="form-group time-group">
+  <label>選擇時段</label>
+  <select [(ngModel)]="selectedTime" name="time" required>
+    @for(item of timeList; track $index){
+      <option [value]="item.shift_work_id">{{ item.start_time }} ~ {{ item.end_time }}</option>
+    }
+  </select>
+</div>
+
+<div class="form-actions">
+  <button type="submit" class="btn-primary" (click)="addShift()">確定</button>
+  <button type="button" class="btn-cancel" (click)="Oncancel()">取消</button>
+</div>
+
+

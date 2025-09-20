@@ -1,0 +1,17 @@
+<div class="notice-board">
+
+  <div class="notice-header-bar">
+    <h2 class="notice-title">📢 通知布告欄</h2>
+    <button class="add-button" (click)="showAddDialog(branch_id)">新增通知</button>
+  </div>
+
+  @for(notify of notifyList;track $index;let index = $index){
+    <div class="notice-item" (click)="showEditDialog(branch_id,notify.notify_id)">
+      <div class="notice-header">
+        <span class="notice-date">{{notify.notify_startTime}} - {{notify.notify_endTime}}</span>
+      </div>
+      <p class="notice-content">{{notify.notify_text}}</p>
+    </div>
+  }
+
+</div>

@@ -1,0 +1,39 @@
+<h2>更新班表</h2>
+
+@for(item of employeeList; track $index){
+  <div class="work-item">
+    @if(!item.isEdit){
+      <div class="work-row">
+        <label class="label-title">上班日期：</label>
+        <label class="label-value">{{item.apply_date}}</label>
+      </div>
+      <div class="work-row">
+        <label class="label-title">上班時段：</label>
+        <label class="label-value">{{item.startTime}} ~ {{item.endTime}}</label>
+      </div>
+      <div class="work-actions">
+        <button class="btn-edit" (click)="changeType($index)">編輯</button>
+      </div>
+    }@else{
+      <div class="work-row">
+        <label class="label-title">上班日期：</label>
+        <input type="date" [(ngModel)]="updateDate" [min]="tomorrow" [max]="limit">
+      </div>
+      <div class="work-row">
+        <label class="label-title">上班時段：</label>
+        <select [(ngModel)]="updateTime">
+          @for(time of timeList; track $index){
+            <option [value]="time.shift_work_id">{{time.start_time}} ~ {{time.end_time}}</option>
+          }
+        </select>
+      </div>
+      <div class="work-actions">
+        <button class="btn-save" (click)="updateItem(item.apply_date)">儲存</button>
+        <button class="btn-cancel" (click)="changeType($index)">取消</button>
+      </div>
+    }
+  </div>
+}
+
+
+

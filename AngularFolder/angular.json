@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "medium": {
+    "EmployeeShift": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "medium:build:production"
+              "buildTarget": "EmployeeShift:build:production"
             },
             "development": {
-              "buildTarget": "medium:build:development"
+              "buildTarget": "EmployeeShift:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,13 +82,9 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-                    "src/favicon.ico",
-      "src/assets",
-      "src/public",
               {
                 "glob": "**/*",
                 "input": "public"
-
               }
             ],
             "styles": [
