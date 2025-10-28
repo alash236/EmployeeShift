@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.p01.dao.ClockDateMyBatisDao">
+
+	<update id="clockOff"
+		parameterType="com.example.p01.dto.ClockOffDto">
+
+		update clock_date
+		set clock_off = #{clockOff},
+		total_hour
+		= #{totalHour},
+		score = #{score}
+		where
+		employee_id = #{employeeId}
+		order by id desc
+		limit 1
+
+	</update>
+
+	<select id="checkClockOn">
+
+		select case
+		when clock_on is not null then 1
+		else 0
+		end
+		from clock_date
+		where employee_id = #{employeeId} and
+		work_date = #{workDate}
+		order by id DESC
+		limit 1
+
+	</select>
+
+	<select id="checkClockOff">
+
+		select case
+		when clock_off is not null then 1
+		else 0
+		end
+		from clock_date
+		where employee_id = #{employeeId} and
+		work_date = #{workDate}
+		order by id DESC
+		limit 1
+
+	</select>
+
+	<select id="selectClockDate"
+		resultType="com.example.p01.dto.ClockDateDto">
+
+		select * from clock_date
+		where
+		employee_id = #{employeeId}
+		order by id DESC
+		limit 1
+
+	</select>
+	
+	<select id="getSingleHistoryClock2" resultType="com.example.p01.dto.ClockDate2">
+	select 
+	cd.employee_id as employeeId,
+	cd.work_date as workDate,
+	cd.clock_on as clockOn,
+	cd.clock_off as clockOff,
+	cd.rest_start as restStart,
+	cd.rest_end as restEnd,
+	cd.total_hour as totalHour,
+	cd.has_double as hasDouble,
+	ps.shift_work_id as shiftWorkId,
+	sw.start_time as startTime,
+	sw.end_time as endTime
+	from clock_date cd 
+	left join pre_schedule ps on cd.employee_id = ps.employee_id and 
+	cd.work_date = ps.apply_date 
+	left join shift_work sw on ps.shift_work_id = sw.shift_work_id
+	where cd.work_date between #{startDate} and #{endDate}
+    and cd.employee_id = #{employeeId}
+    order by cd.work_date asc
+	</select>
+
+</mapper>
