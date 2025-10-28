@@ -154,3 +154,15 @@ body.cdk-global-scrollblock {
   background-color: #00000000; // 你想要的背景色
   border-radius: 2000px; // 可選圓角
 }
+
+// salary
+.sa .mat-mdc-table thead,
+.sa .mat-mdc-table .mat-mdc-header-cell {
+  background: #fdedc7 !important;
+}
+
+// leave
+.le .mat-mdc-table thead,
+.le .mat-mdc-table .mat-mdc-header-cell {
+  background: #fdedc7 !important;
+}
