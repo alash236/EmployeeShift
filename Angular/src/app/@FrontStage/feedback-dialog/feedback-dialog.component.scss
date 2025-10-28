@@ -1,0 +1,145 @@
+
+
+:root {
+    // 全域變數
+    --dark-bule: #182d3b;
+    --dark-purple: #29091e;
+    --font-size-main: 16px;
+  }
+  
+  .mainDiv {
+    width: 600px;
+    margin: 0 auto;              // 水平置中
+    display: flex;
+    flex-direction: column;
+    align-items: center;          // 水平置中裡面內容
+    justify-content: center;      // 垂直置中
+    padding: 50px;  
+    box-sizing: border-box; 
+  }
+  
+  // =========== 使用者資料 CSS =============
+  
+
+
+
+  
+  .inputCss {
+    flex: 1;
+    max-width: none;       /* ← 取消 250px 限制，和文字區同寬 */
+    padding: 5px 5px;
+    background: #ccc;
+    border: 2px black solid;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .fillinRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+  
+    width: 400px;
+    margin: 8px auto;      /* ← 水平置中 + 上下間隔 */
+  }
+  
+  .fillinRow label {
+    width: 100px;   
+    text-align: right; 
+    color: black;
+  }
+
+  // =========== 底下意見回饋 CSS =============
+  
+  .title {
+    text-align:left;
+    font-size: 20px;
+    color: block;
+    font-weight: 700;    
+  }
+  
+  
+  .areaCss { // 意見輸入框
+    padding: 5px 10px; // 填寫文字位置
+    background: #ccc;
+    border: 2px black solid;
+  
+    cursor: pointer; // 改變滑鼠游標 - 手指
+    border-radius: 5px;
+    margin-bottom: 20px;
+  
+    width: 400px;
+    height: 300px;
+    font-size: 16px;
+    line-height: 1.5; // 文字段落行高
+  }
+  
+  .btnCss {
+    padding: 5px 15px;
+    background: #626262;
+    border: 2px black solid;
+    color: #ffffff; // 字體顏色
+    cursor: pointer;  // 改變滑鼠游標 - 手指
+    border-radius: 5px;
+  }
+  
+  .btnCss:active {
+    background: #434343;
+    transform: scale(0.95); // 微縮，模擬壓下去
+  }
+
+  
+  /* 飛機小圖 */
+  .btnRow {
+    display: flex;
+    justify-content: flex-end; /* → 全部靠右 */
+    gap: 5px;
+ 
+    width: 100%;
+    margin-right: 55px;
+  }
+  
+  
+  .button {
+    display: inline-flex;
+    height: 30px;
+    width: 80px;
+    border: 2px solid #4F5D75;
+    margin: 10px;
+    color: #4F5D75;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .9em;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;  /* 讓文字永遠在正中間 */
+    position: relative;       /* 讓裡面的 icon 可以用 absolute 定位 */
+    cursor: pointer;
+    background: transparent;
+    transition: all .3s ease-in-out;
+  }
+  
+  /* 飛機 icon */
+  #arrow-hover {
+    width: 12px;
+    height: 12px;
+    position: absolute;   /* 🔑 這裡改成 absolute */
+    right: 10px;           /* 距離右邊 8px */
+    bottom: 8px;         /* 距離下邊 10px (讓它偏右下角) */
+    opacity: 0;
+    transform: translateX(8px);  /* 初始往右一點 */
+    transition: all .25s cubic-bezier(.14, .59, 1, 1.01);
+  }
+  
+  /* hover 時進場 */
+  #button-1:hover #arrow-hover {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .userInfo{
+    width: 400px;
+    align-self: flex-start; /* 覆蓋 .mainDiv 的 align-items:center */
+    margin: 0;              /* 不要置中 */
+  }
