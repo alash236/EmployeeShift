@@ -17,6 +17,9 @@ public class Salary {
     @Column(name = "base_salary")
     private int baseSalary;
 
+    @Column(name = "hourlyrate")
+    private int hourlyRate;
+
     @Column(name = "overtime_pay")
     private int overtimePay;
 
@@ -26,11 +29,16 @@ public class Salary {
     @Column(name = "insurance_fee")
     private int insuranceFee;
 
-    @Column(name = "tax_deduction")
-    private int taxDeduction;
-
     @Column(name = "total_salary")
     private int totalSalary;
+
+    public int getHourlyRate() {
+        return hourlyRate;
+    }
+
+    public void setHourlyRate(int hourlyRate) {
+        this.hourlyRate = hourlyRate;
+    }
 
     public int getBaseSalary() {
         return baseSalary;
@@ -70,14 +78,6 @@ public class Salary {
 
     public void setOvertimePay(int overtimePay) {
         this.overtimePay = overtimePay;
-    }
-
-    public int getTaxDeduction() {
-        return taxDeduction;
-    }
-
-    public void setTaxDeduction(int taxDeduction) {
-        this.taxDeduction = taxDeduction;
     }
 
     public int getTotalSalary() {

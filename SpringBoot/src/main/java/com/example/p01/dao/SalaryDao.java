@@ -15,10 +15,10 @@ public interface SalaryDao extends JpaRepository<Salary, SalaryId> {
     @Transactional
     @Modifying
     @Query(value = "insert into salary " +
-            "(`employee_id`,`year_month`,`base_salary`,`overtime_pay`,`deduction`,`insurance_fee`,`tax_deduction`,`total_salary`) values " +
+            "(`employee_id`,`year_month`,`base_salary`,`hourlyRate`,`overtime_pay`,`deduction`,`insurance_fee`,`total_salary`) values " +
             "(?1,?2,?3,?4,?5,?6,?7,?8)",nativeQuery = true)
-    public void addSalary(String employeeId,String yearMonth,int baseSalary,int overtimePay,
-                          int deduction,int insuranceFee,int taxDeduction,int totalSalary);
+    public void addSalary(String employeeId,String yearMonth,int baseSalary,int hourlyRate,int overtimePay,
+                          int deduction,int insuranceFee,int totalSalary);
 
     @Query(value = "select * from salary where `year_month` = ?1",nativeQuery = true)
     public List<Salary> getSalaryById(String yearMonth);
