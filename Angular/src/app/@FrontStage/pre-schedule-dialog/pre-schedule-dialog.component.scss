@@ -10,10 +10,11 @@
     align-items: center;
     justify-content: center;
     min-height: auto;
-    padding: 20px;
-    position: relative; 
+    padding: 42px;
+    position: relative;
+    background-color: #fff7e9;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
@@ -47,20 +48,21 @@
 .dialog-header .mat-icon:hover {
   color: #d32f2f;
 }
-  
+
   .main-title {
     text-align: center;
     font-size: 2.5em;
     font-weight: 700;
     color: #333;
+    margin-top: 15px;
     margin-bottom: 30px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .container {
     display: flex;
     gap: 30px;
@@ -68,9 +70,9 @@
     margin: 0 auto;
     align-items: stretch;
   }
-  
+
   .calendar-wrapper { flex: 0 0 auto; }
-  
+
   /* ------------------------------------
      左側：Calendar 卡片
   ------------------------------------ */
@@ -80,15 +82,16 @@
     border-radius: 0 0 1em 1em;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* 與右側面板等高 */
   .calendar-wrapper .shell {
     min-height: 553px;
     height: 100%;
+    width: 450px; // 51121
     display: flex;
     flex-direction: column;
   }
-  
+
   .shell header {
     border-radius: 1em 1em 0 0;
     color: #fff;
@@ -98,7 +101,7 @@
     overflow: hidden;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
-  
+
   .shell header::before {
     content: '';
     position: absolute;
@@ -112,7 +115,7 @@
     background-position: center;
     z-index: 5;
   }
-  
+
   .day {
     font-family: 'Montserrat', sans-serif;
     font-size: 6em;
@@ -124,7 +127,7 @@
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
     letter-spacing: -0.02em;
   }
-  
+
   .month {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.7em;
@@ -138,7 +141,7 @@
     letter-spacing: 0.05em;
     font-weight: 600;
   }
-  
+
   /* Calendar 表格 */
   .calender {
     width: 100%;
@@ -149,19 +152,19 @@
     border-collapse: collapse;
     flex: 1;  /* 讓表格把剩餘高度撐滿 */
   }
-  
+
   .calender thead {
     color: #e66b6b;
     font-weight: 700;
     text-transform: uppercase;
   }
-  
+
   .calender thead td {
     padding: 15px 8px;
     text-align: center;
     font-size: 12px;
   }
-  
+
   .calender td {
     width: 46px;
     height: 46px;
@@ -171,22 +174,22 @@
     position: relative;
     padding: 0;   /* 關鍵：避免把圓撐歪 */
   }
-  
+
   .calender tbody td { cursor: pointer; }
-  
+
   .current-day {
     color: #e66b6b !important;
     font-weight: 900;
     background: rgba(230, 107, 107, 0.1);
     border-radius: 50%;
   }
-  
+
   .prev-month,
   .next-month {
     color: #cacaca;
     cursor: not-allowed !important;
   }
-  
+
   /* 綁在 header 下方裝飾的白色柱柱 */
   .ring-left, .ring-right { position: absolute; top: 205px; }
   .ring-left { left: 1.5em; }
@@ -201,7 +204,7 @@
     height: 24px;
     width: 6px;
   }
-  
+
   /* ------------------------------------
      圓形日期（共用）— 跟粉色那顆完全一樣的外形
   ------------------------------------ */
@@ -220,7 +223,7 @@
     box-sizing: border-box;
     user-select: none;
   }
-  
+
   /* 粉色：hover（未選中時） */
   .calender td:not(.prev-month):not(.next-month)
     .clickable-date:not(.selected-date):hover {
@@ -228,31 +231,31 @@
     color: #fff !important;
     font-weight: 700 !important;
   }
-  
+
   /* 藍色：選中（selected） */
   .calender .clickable-date.selected-date {
     background: #4299e1 !important;
     color: #fff !important;
     font-weight: 900;
   }
-  
+
   /* ------------------------------------
      右側：選擇的日期面板
   ------------------------------------ */
   .selected-dates-panel {
-    flex: 0 0 400px;
+    flex: 0 0 450px; //51121
     background: #fff;
     border-radius: 1em;
     padding: 25px;
     padding-bottom: 80px;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2);
     min-height: 553px;
-    width: 400px;
+    width: 40px;
     position: relative;
     width: 100%;
     max-width: 100%;
   }
-  
+
   .panel-title {
     font-size: 1.5em;
     font-weight: 700;
@@ -262,7 +265,7 @@
     border-bottom: 2px solid #e66b6b;
     padding-bottom: 8px;
   }
-  
+
   .selected-count {
     background: #e66b6b;
     color: white;
@@ -273,7 +276,7 @@
     font-weight: 600;
     font-size: 0.9em;
   }
-  
+
   .selected-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -284,7 +287,7 @@
     align-content: start;
     justify-items: center;
   }
-  
+
   .selected-item {
     background: #4299e1;
     color: white;
@@ -304,16 +307,16 @@
     justify-content: center;
     box-sizing: border-box;
   }
-  
+
   .selected-item:hover { background: #3182ce; transform: translateY(-1px); }
   .selected-item .date { font-size: 0.9em; font-weight: 700; }
   .selected-item .weekday { font-size: 0.75em; opacity: 0.9; }
-  
+
   .selected-item .shift {
     font-size: 0.9em;    /* 跟 date 一樣 */
     font-weight: 700;    /* 跟 date 一樣 */
   }
-  
+
   .no-selection {
     text-align: center;
     color: #666;
@@ -325,7 +328,7 @@
     font-size: 0.9em;
     margin-bottom: 20px;
   }
-  
+
   /* 底部兩顆按鈕 */
   .button-group {
     display: flex;
@@ -370,7 +373,7 @@
     background: linear-gradient(135deg, #218838 0%, #17a2b8 100%);
   }
   .btn:active { transform: translateY(0); }
-  
+
   /* 響應式 */
   @media (max-width: 768px) {
     .main-title { font-size: 2em; margin-bottom: 20px; }
@@ -423,7 +426,7 @@
 .empty-date { opacity: .35; pointer-events: none; }
 
 
-  
+
 
 
 .disabled-date { opacity: .45; cursor: not-allowed; pointer-events: none; }

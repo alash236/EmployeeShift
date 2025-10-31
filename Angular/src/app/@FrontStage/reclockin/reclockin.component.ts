@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
+
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 import { HttpClientService } from '../../@Service/HttpClientService';
 
@@ -25,7 +26,7 @@ export class ReclockinComponent implements OnInit, OnDestroy {
   ) {}
 
   // 狀態變數
-  leftLabel = '🕐 上班打卡';
+  leftLabel = '上班打卡';
   rightLabel = '---';
   leftDisabled = false;
   rightDisabled = true;
@@ -117,44 +118,44 @@ export class ReclockinComponent implements OnInit, OnDestroy {
 
   private updateSingleButtons() {
     if (!this.clockInTime) {
-      this.leftLabel = '🕐 上班打卡';
+      this.leftLabel = '上班打卡';
       this.rightLabel = '---';
       this.leftDisabled = false;
       this.rightDisabled = true;
     } else if (!this.clockOutTime) {
-      this.leftLabel = '✅ 已完成';
-      this.rightLabel = '🕕 下班打卡';
+      this.leftLabel = '已完成';
+      this.rightLabel = '下班打卡';
       this.leftDisabled = true;
       this.rightDisabled = false;
     } else {
-      this.leftLabel = this.rightLabel = '✅ 已完成';
+      this.leftLabel = this.rightLabel = '已完成';
       this.leftDisabled = this.rightDisabled = true;
     }
   }
 
   private updateLunchButtons() {
     if (!this.clockInTime) {
-      this.leftLabel = '🕐 上班打卡';
+      this.leftLabel = '上班打卡';
       this.rightLabel = '---';
       this.leftDisabled = false;
       this.rightDisabled = true;
     } else if (!this.restStart) {
-      this.leftLabel = '☕ 午休開始';
+      this.leftLabel = '午休開始';
       this.rightLabel = '---';
       this.leftDisabled = false;
       this.rightDisabled = true;
     } else if (!this.restEnd) {
-      this.leftLabel = '✅ 已完成';
-      this.rightLabel = '🍱 午休結束';
+      this.leftLabel = '已完成';
+      this.rightLabel = '午休結束';
       this.leftDisabled = true;
       this.rightDisabled = false;
     } else if (!this.clockOutTime) {
-      this.leftLabel = '✅ 已完成';
-      this.rightLabel = '🕕 下班打卡';
+      this.leftLabel = '已完成';
+      this.rightLabel = '下班打卡';
       this.leftDisabled = true;
       this.rightDisabled = false;
     } else {
-      this.leftLabel = this.rightLabel = '✅ 已完成';
+      this.leftLabel = this.rightLabel = '已完成';
       this.leftDisabled = this.rightDisabled = true;
     }
   }
@@ -162,13 +163,13 @@ export class ReclockinComponent implements OnInit, OnDestroy {
   private updateMultiButtons() {
     if (this.round === 1) {
       if (!this.clockInTime) {
-        this.leftLabel = '🕐 第一段上班';
+        this.leftLabel = '第一段上班';
         this.rightLabel = '---';
         this.leftDisabled = false;
         this.rightDisabled = true;
       } else if (!this.clockOutTime) {
-        this.leftLabel = '✅ 已完成';
-        this.rightLabel = '🕕 第一段下班';
+        this.leftLabel = '已完成';
+        this.rightLabel = '第一段下班';
         this.leftDisabled = true;
         this.rightDisabled = false;
       } else {
@@ -180,17 +181,17 @@ export class ReclockinComponent implements OnInit, OnDestroy {
       }
     } else if (this.round === 2) {
       if (!this.clockInTime) {
-        this.leftLabel = '🕐 第二段上班';
+        this.leftLabel = '第二段上班';
         this.rightLabel = '---';
         this.leftDisabled = false;
         this.rightDisabled = true;
       } else if (!this.clockOutTime) {
-        this.leftLabel = '✅ 已完成';
-        this.rightLabel = '🕕 第二段下班';
+        this.leftLabel = '已完成';
+        this.rightLabel = '第二段下班';
         this.leftDisabled = true;
         this.rightDisabled = false;
       } else {
-        this.leftLabel = this.rightLabel = '✅ 已完成';
+        this.leftLabel = this.rightLabel = '已完成';
         this.leftDisabled = this.rightDisabled = true;
       }
     }
@@ -257,7 +258,7 @@ export class ReclockinComponent implements OnInit, OnDestroy {
   endLunch() {
     const now = this.nowClockTime();
     const req = { employeeId: this.data.employeeId, workDate: this.data.workDate, restEnd: now };
-    console.log('🍱 午休結束送出:', req);
+    console.log('午休結束送出:', req);
     this.http.postApi('http://localhost:8080/rest/end', req).subscribe({
       next: (res: any) => {
         if (res.code === 200) {

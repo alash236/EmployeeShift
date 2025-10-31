@@ -17,13 +17,14 @@
   right: 0;
 }
 
-:host ::ng-deep .mdc-button__label {
-  color: #fff !important;
-}
+// :host ::ng-deep .mdc-button__label {
+//   color: #fff !important;
+// }
 :host ::ng-deep .mat-focus-indicator .btn-bg-secondary {
   border: 2px solid #fff;
   border-radius: 1000px;
   background-color: #7a6b5a !important;
+
 }
 
 :host ::ng-deep .btn-bg-secondary {

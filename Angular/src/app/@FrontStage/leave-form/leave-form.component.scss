@@ -114,8 +114,8 @@
 
         &:hover { background: #f0f0f0; }
 
-        .folder-icon { font-size: 40px; }
-        .upload-text { color: #777; margin-left: 10px; }
+        .folder-icon { font-size: 40px; display: flex; align-items: center; }
+        .upload-text { color: #777; margin-left: 10px; font-size: 16px; line-height: 25px; margin-top: 3px; }
 
         .preview-in-box {
           position: relative;

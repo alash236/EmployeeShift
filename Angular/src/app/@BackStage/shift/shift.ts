@@ -215,7 +215,7 @@ export class BackShift {
   showUpdateShiftWork(employeeId: string) {
     const dialogRef = this.dialog.open(UpdateShiftWork, {
       width: '600px',
-      height: '74vh',
+      height: '490px',
       maxWidth: '90vw',
       maxHeight: '90vh',
       panelClass: 'custom-dialog',

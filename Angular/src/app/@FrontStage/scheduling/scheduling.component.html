@@ -173,18 +173,18 @@
       <div class="widget-card">
         <div class="widget-header">
           <span>本月上班時數</span>
-          <span class="salary-value">本月總時數 {{ monthQuotaHours }} 小時</span>
+          <span  class="salary-value">本月總時數 {{ monthQuotaHours }} 小時</span>
         </div>
 
         <div class="widget-body salary-body" style="display:flex;align-items:center;">
           <div class="left-stats" style="min-width:120px;text-align:center;">
             <div class="label">已上時數</div>
-            <div class="value" style="font-size:36px;font-weight:700">{{ workedHours }}</div>
+            <div  class="value" style="font-size:25px;font-weight:700">{{ workedHours }}</div>
             <div class="sub">小時</div>
           </div>
 
           <!-- 就用你的水滴樣式 -->
-          <app-water-drop class="drop" [level]="uiLevel"></app-water-drop>
+          <app-water-drop  class="drop" [level]="uiLevel"></app-water-drop>
 
 
         </div>

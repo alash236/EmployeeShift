@@ -84,10 +84,9 @@ export class PreScheduleDialogComponent implements OnInit {
 
     const employeeId = localStorage.getItem("employeeId") || "E001";
     const key = `preSchedule_${employeeId}`;
-    const confirmedKey = `confirmedSchedule_${employeeId}`;
 
     const preData = JSON.parse(localStorage.getItem(key) || "[]");
-    const confirmedData = JSON.parse(localStorage.getItem(confirmedKey) || "[]");
+    const confirmedData = JSON.parse(localStorage.getItem("confirmedSchedule") || "[]");
 
     // 合併已排日期
     const filledDates = new Set([

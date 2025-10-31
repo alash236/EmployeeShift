@@ -17,7 +17,11 @@
 /* ========== 白卡（Grid 控距 + 統一寬度） ========== */
 .reclockin-root{ --band-w: clamp(440px, 92%, 520px); } /* 520px 上限最貼近範例 */
 .attendance-container{
-  height:100%;padding:22px 24px;background:#fff;border-radius:18px;
+  height:100%;padding:22px 24px;
+
+  background:#fff7e9; //51121
+
+  border-radius:18px;
   box-shadow:0 6px 20px rgba(0,0,0,.06);box-sizing:border-box;
   display:grid;grid-auto-rows:max-content;row-gap:20px;align-content:start;
 }
@@ -36,10 +40,11 @@
   align-items: center;
   justify-content: center;
   gap: 8px;              /* emoji 與文字間距 */
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 800;
   line-height: 1.25;
-  margin: 0;             /* 清掉可能的預設外距 */
+  // margin: 0;             /* 清掉可能的預設外距 */
+  margin-top: 50px; //51121
 }
 .header .welcome-text{
   margin: 4px 0 0;
@@ -48,15 +53,21 @@
 
 /* ========== 時間卡（更大字、更淡底） ========== */
 .time-display{
-  background:#e5e5e5;border:1px solid #e6eaf2;border-radius:16px;
+  background:#e5e5e5;
+  border:1px solid #e6eaf2;
+  border-radius:16px;
   padding:20px 18px;
+
+  margin-top:10px //51121
 }
 .current-time{
   font-size:48px;font-weight:800;letter-spacing:1px;color:#111827;
   display: flex; justify-content: center; align-items: center;
+
+  margin-top:15px //51121
 }
 .current-date{
-  margin-top:6px;color:#6b7280;
+  margin-top:20px;color:#6b7280;
   display: flex; justify-content: center; align-items: center;
 }
 
@@ -78,7 +89,7 @@
 
 /* ========== 今日打卡記錄 ========== */
 .attendance-record{
-  margin:0!important;padding:18px;border-radius:16px;border:1px solid #e7ebf3;background:#e5e5e5;text-align:left;
+  margin:16px!important;padding:18px;border-radius:16px;border:1px solid #e7ebf3;background:#e5e5e5;text-align:left;
 }
 .attendance-record h3{
   margin:0 0 12px;font-size:16px;font-weight:700;text-align:center;color:#111827;

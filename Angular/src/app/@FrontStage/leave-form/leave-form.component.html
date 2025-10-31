@@ -62,8 +62,10 @@
             </div>
           </div>
           <ng-template #uploadEmpty>
-            <div class="folder-icon">📁</div>
-            <span class="upload-text">點擊上傳檔案</span>
+            <div class="folder-icon">
+              <img style="width: 25px;" src="upload.png">
+              <span class="upload-text">點擊上傳檔案</span>
+            </div>
           </ng-template>
           <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none;" />
         </label>
@@ -106,7 +108,7 @@
 
         <div class="period-header period-header--with-shift">
           <label>請假日期</label>
-          <label>當日班別</label> 
+          <label>當日班別</label>
           <label>開始時間</label>
           <label>結束時間</label>
           <div></div>
@@ -114,7 +116,7 @@
 
         <div class="period-box" *ngFor="let item of period; let i = index">
           <div class="time-segment-row time-segment-row--with-shift">
-            <input type="date" class="form-control" [(ngModel)]="item.leave"  (change)="onPartialDateSelected(item)" /> 
+            <input type="date" class="form-control" [(ngModel)]="item.leave"  (change)="onPartialDateSelected(item)" />
 
             <input type="text"
             class="form-control"

@@ -18,6 +18,7 @@ import { AnnouncementDialogComponent } from '../announcement-dialog/announcement
 import { ClockComponent } from '../clock/clock.component';
 import { WaterdropComponent } from '../waterdrop/waterdrop.component';
 import { ReclockinComponent } from '../reclockin/reclockin.component';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { PreScheduleDialogComponent } from '../pre-schedule-dialog/pre-schedule-dialog.component';
 import { MatChipsModule } from '@angular/material/chips';
@@ -102,6 +103,7 @@ export class SchedulingComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private dialog: MatDialog,
+
     private cd: ChangeDetectorRef
   ) {}
 
@@ -218,7 +220,7 @@ punchIn(): void {
 
       const dialogRef = this.dialog.open(ReclockinComponent, {
         width: '600px',
-        height: '650px',
+        height: '650px', // 51121
         data: {
           employeeId,
           workDate,
@@ -443,7 +445,7 @@ time: any[] = [];
   close() {
     const employeeId = localStorage.getItem('employeeId');
     this.dialog.open(PreScheduleDialogComponent, {
-      width: '900px',
+      width: '1000px', // 51121
       height: '700px',
       panelClass: 'no-scroll',
       maxWidth: '100vw',

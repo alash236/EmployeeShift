@@ -28,7 +28,7 @@ export class HttpClientService {
   }
 
   // 刪除
-  delApi(url: string) {
-    return this.httpClient.delete(url)
+  delApi(url: string, delData: any) {
+    return this.httpClient.delete(url, delData)
   }
 }
